@@ -15,6 +15,8 @@ gem 'devise-async'
 gem 'puma'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
+gem 'stripe'
+gem 'figaro'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 
