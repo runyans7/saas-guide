@@ -1,0 +1,14 @@
+<h2>Please choose a new plan:</h2>
+<br>
+<%= render 'plans' %>
+<br>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_tag '/subscriptions' do %>
+      <div class="form-group">
+        <%= collection_select :plan, :stripe_id, @plans, :stripe_id, :name, {}, { class: "form-control"} %>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Subscription</button>
+    <% end %>
+  </div>
+</div>
