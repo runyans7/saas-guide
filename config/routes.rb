@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :weather_grid, only: [:index]
 
-  get '/subscriptions/cancel' => 'subscriptions#cancel'
+  get '/subscriptions/cancel', to: 'subscriptions#cancel'
+  get 'subscriptions/update_card', to: 'subscriptions#update_card'
+  post 'subscriptions/update_card_details', to: 'subscriptions#update_card_details'
   resources :subscriptions
 end

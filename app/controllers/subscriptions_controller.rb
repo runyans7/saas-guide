@@ -86,6 +86,24 @@ class SubscriptionsController < ApplicationController
       redirect_to :new_subscription, :flash => { :error => e.message }
   end
 
+  def update_card
+  end
+
+  def update_card_details
+    token = params[:stripeToken]
+    current_account = Account.find_by_email(current_user.email)
+    customer_id = current_account.customer_id
+
+    customer = Stripe::Customer.retrieve(customer_id)
+    customer.source = token
+    customer.save
+
+    redirect_to '/subscriptions', :notice => "Card updated successfully"
+
+  rescue => e
+    redirect_to :update, :flash => { :error => e.message }
+  end
+
   def save_account_details(account, plan, customer_id, active_until)
 
   end
